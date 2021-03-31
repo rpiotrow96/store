@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="'Product ' + ${product.getId()}"></title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-lg-6 prod-desc-box">
+            <div class="unit-desc">
+                <div class="unit-prize" th:text="${#numbers
+							.formatDecimal(product.getPrize(), 2, 2)} + ' zł'"></div>
+                <div class="unit-info">
+                    <div th:text="${product.getDescription()}"></div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

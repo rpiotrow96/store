@@ -1,6 +1,6 @@
 package aitsi.store.controller;
 
-import aitsi.store.entity.Product;
+import aitsi.store.entity.ProductType;
 import aitsi.store.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,10 +18,10 @@ public class MainController {
         this.productService = productService;
     }
 
-    @RequestMapping("/products")
+    @RequestMapping("/main")
     public String getProducts(Model model) {
-        List<Product> products = productService.getAllProducts();
-        model.addAttribute("products", products);
-        return "products";
+        model.addAttribute("categories", productService.getAllCategories());
+
+        return "mainPage";
     }
 }
