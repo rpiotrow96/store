@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Leki</title>
+
+</head>
+<body>
+
+    <div class="titleText">
+        <h1 class="small-mg-bot">Kategorie</h1>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <th:block th:each="category : ${categories}">
+                <div class="col">
+                    <div class="cat-data">
+<!--                        <img class="cat-img" th:src="@{'/img/categories/' +-->
+<!--									${category.getName().toLowerCase()} + '.jpg'}"-->
+<!--                             th:alt="${category.getName().toLowerCase()}" onerror="imgError(this)">-->
+
+                        <a class="in-category" th:href="@{/products(categoryId=${category.getId()})}"
+                           th:text="${category.getName()}"></a>
+                    </div>
+                </div>
+            </th:block>
+        </div>
+
+<!--        <nav th:replace="fragments/footer :: footer"/>-->
+    </div>
+</body>
+</html>

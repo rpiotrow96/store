@@ -9,6 +9,8 @@ public class Product {
     private Long id;
     private String name;
     private String producer;
+    @Lob
+    @Column(columnDefinition = "LONGTEXT")
     private String description;
     private Double prize;
     @ManyToOne

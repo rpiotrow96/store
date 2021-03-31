@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="'Category: ' + ${categoryName}"></title>
+</head>
+<body>
+    <div class="titleText small-mg-bot">
+        <h1 th:text="'Kategoria: ' + ${categoryName}"></h1>
+
+    </div>
+    <div class="container">
+        <div class="row" th:if="${products.size()} != 0">
+            <th:block th:each="product : ${products}">
+                <div class="col">
+                    <div class="prod-data">
+                        <div class="prod-desc">
+                            <h2 th:text="${product.getName().toUpperCase()}"></h2>
+                        </div>
+
+
+                        <div class="prod-prize">
+                            <a class="prod-href" th:href="@{/products/product(productId=${product.getId()})}"
+                               th:text="${#numbers.formatDecimal(product.getPrize(), 2, 2)} + ' zł'"></a>
+                        </div>
+                    </div>
+                </div>
+            </th:block>
+        </div>
+
+        <div id="prod-nf" th:if="${products.size()} == 0">
+            <h2>
+                <i class="glyphicon glyphicon-warning-sign"></i>
+                Nie znaleziono produktów!
+                <i class="glyphicon glyphicon-warning-sign"></i>
+            </h2>
+        </div>
+    </div>
+</body>
+</html>
