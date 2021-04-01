@@ -1,0 +1,13 @@
+body {
+    background: #157290;
+    background: linear-gradient(#157290, #FFFFFF);
+    background-attachment: fixed;
+
+}
+
+.titleText {
+    width: 100%;
+    top: 100px;
+    text-align: center;
+    color: #6b3a99;
+}

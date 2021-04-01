@@ -3,15 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title th:text="'Product ' + ${product.getId()}"></title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/general.css}"/>
 </head>
 <body>
 <div class="container">
     <div class="row">
-        <div class="col-sm-12 col-lg-6 prod-desc-box">
-            <div class="unit-desc">
-                <div class="unit-prize" th:text="${#numbers
+        <div class="col-sm-12 col-lg-6">
+            <img th:src="@{'/img/products/' + ${product.getId()} + '.jpg'}">
+        </div>
+        <div class="col-sm-12 col-lg-6">
+            <div>
+                <div th:text="${#numbers
 							.formatDecimal(product.getPrize(), 2, 2)} + ' zł'"></div>
-                <div class="unit-info">
+                <div>
                     <div th:text="${product.getDescription()}"></div>
                     <br>
                 </div>
