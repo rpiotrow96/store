@@ -10,6 +10,10 @@ INSERT INTO product_type (name) VALUES
 ('Leki przeciwalergiczne');
 INSERT INTO product_type (name) VALUES
 ('Antybiotyki');
+INSERT INTO product_type (name) VALUES
+('Leki na trawienie');
+INSERT INTO product_type (name) VALUES
+('Leki przeciwgrzybiczne');
 
 INSERT INTO product (name, producer, description, prize,  product_type_id) VALUES
 ( 'Ibuprom', 'USP zdrowie', 'Ibuprom lek polecany jest do stosowania w dolegliwościach bólowych różnego pochodzenia o nasileniu słabym do umiarkowanego. Lek obniża również gorączkę w przebiegu grypy, przeziębienia lub innych chorób zakaźnych.',

@@ -8,22 +8,26 @@
 </head>
 <body>
 
-<div class="titleText">
-    <h1 class="small-mg-bot">Kategorie</h1>
-</div>
 
 <div class="container">
+    <nav th:replace="fragments/header :: header"></nav>
+    <div class="jumbotron">
+        <h1 class="small-mg-bot">Kategorie</h1>
+        <p>Wybierz kategorię leku</p>
+    </div>
     <div class="row">
         <th:block th:each="category : ${categories}">
             <div class="col">
                 <div>
-                    <img th:src="@{'/img/categories/' +${category.getId()} + '.png'}">
-                    <a th:href="@{/products(categoryId=${category.getId()})}" th:text="${category.getName()}"></a>
+                    <a th:href="@{/products(categoryId=${category.getId()})}" >
+                        <img th:src="@{'/img/categories/' +${category.getId()} + '.svg'}">
+                        <div class="caption main-link"  th:text="${category.getName()}">
+                        </div>
+                    </a>
                 </div>
             </div>
         </th:block>
     </div>
-
 </div>
 </body>
 </html>

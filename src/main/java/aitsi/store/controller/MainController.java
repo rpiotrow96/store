@@ -21,4 +21,8 @@ public class MainController {
 
         return "mainPage";
     }
+    @RequestMapping("/welcome")
+    public String getWelcomePage(Model model) {
+        return "welcome";
+    }
 }

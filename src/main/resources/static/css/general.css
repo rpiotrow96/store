@@ -1,13 +1,21 @@
-body {
-    background: #157290;
-    background: linear-gradient(#157290, #FFFFFF);
-    background-attachment: fixed;
-
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #f8f9fa;
+    color: #3e4545;
+    text-align: center;
 }
 
-.titleText {
-    width: 100%;
-    top: 100px;
-    text-align: center;
-    color: #6b3a99;
+h1 {
+    font-size: 4rem;
+}
+
+p {
+    font-size: 1.5rem;
+}
+
+main-link {
+    text-decoration: none;
 }

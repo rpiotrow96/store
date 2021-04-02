@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Witamy</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/general.css}"/>
+</head>
+<body>
+<div class="container">
+    <nav th:replace="fragments/header :: header"></nav>
+    <div class="jumbotron">
+        <h1>Witaj w sklepie internetowym LekNaKażdąOkazję</h1>
+        <p>Tutaj znajdziesz każdy lek!</p>
+    </div>
+    <nav th:replace="fragments/footer :: footer"></nav>
+</div>
+</body>
+</html>
