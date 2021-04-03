@@ -4,10 +4,7 @@ import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import javax.validation.Valid;
-import javax.validation.constraints.DecimalMin;
-import javax.validation.constraints.Digits;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 
 @Entity
 public class Product {
@@ -38,15 +35,23 @@ public class Product {
     @ManyToOne
     private ProductType productType;
 
+    @NotNull(message = "* Proszę podaj dostępną ilość produktu")
+    @Min(value = 0, message = "* Proszę wprowadź liczbę nieujemną dostępnej ilości produktu")
+    private long unitsInStock;
+
+    private long availableAmount;
+
     public Product() {
     }
 
-    public Product(String producer, String name, String description, Double prize, ProductType productType) {
+    public Product(String producer, String name, String description, Double prize, ProductType productType, long unitsInStock) {
         this.producer = producer;
         this.name = name;
         this.description = description;
         this.prize = prize;
         this.productType = productType;
+        this.unitsInStock = unitsInStock;
+        this.availableAmount = unitsInStock;
     }
 
     public Long getId() {
@@ -97,6 +102,22 @@ public class Product {
         this.productType = productType;
     }
 
+    public long getAvailableAmount() {
+        return availableAmount;
+    }
+
+    public void setAvailableAmount(long availableAmount) {
+        this.availableAmount = availableAmount;
+    }
+
+    public long getUnitsInStock() {
+        return unitsInStock;
+    }
+
+    public void setUnitsInStock(long unitsInStock) {
+        this.unitsInStock = unitsInStock;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -116,11 +137,13 @@ public class Product {
     public String toString() {
         return "Product{" +
                 "id=" + id +
-                ", producer='" + producer + '\'' +
                 ", name='" + name + '\'' +
+                ", producer='" + producer + '\'' +
                 ", description='" + description + '\'' +
                 ", prize=" + prize +
                 ", productType=" + productType +
+                ", availableAmount=" + availableAmount +
+                ", unitsInStock=" + unitsInStock +
                 '}';
     }
 }
