@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/general.css}"/>
+</head>
+<body>
+<div class="container">
+    <nav th:replace="fragments/header :: header"></nav>
+    <div class="jumbotron">
+        <h1 class="small-mg-bot" >Zaloguj się</h1>
+    </div>
+
+    <form class="login-form" th:action="@{/login}" th:method="post">
+        <input type="text" id="email" name="email" th:placeholder="Email"
+               class="form-control login-input" />
+        <br>
+
+        <input type="password" id="password" name="password" th:placeholder="Hasło"
+               class="form-control login-input" />
+        <br>
+
+        <div align="center" th:if="${param.error}">
+            <p class="login-error">Email lub hasło są niepoprawne, spóbuj ponownie.</p>
+        </div>
+
+        <div class="button-center">
+            <button class="login-button" type="submit" name="submit" value="" th:text="Zaloguj"></button>
+        </div>
+        <br>
+    </form>
+</div>
+</body>
+</html>

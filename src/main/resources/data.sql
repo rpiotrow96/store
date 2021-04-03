@@ -1,3 +1,17 @@
+INSERT INTO role VALUES
+(1, 'ADMIN'),
+(2, 'USER');
+
+INSERT INTO user VALUES
+(1, 1, 'admin@admin.pl', 'Admin', 'Admin', '$2a$10$iLpYZ2Xt9yNMXdQgJMI98OxkxUgmL2awfQjxwPNkLLed/7xeeRDFm'), --pass: 12345
+(2, 1, 'user@user.pl', 'User', 'User', '$2a$10$iLpYZ2Xt9yNMXdQgJMI98OxkxUgmL2awfQjxwPNkLLed/7xeeRDFm'), --pass: 12345
+(3, 1, 'user2@user.pl', 'User2', 'User2', '$2a$10$iLpYZ2Xt9yNMXdQgJMI98OxkxUgmL2awfQjxwPNkLLed/7xeeRDFm'); --pass: 12345
+
+INSERT INTO user_role VALUES
+(1, 1),
+(2, 2),
+(3, 2);
+
 INSERT INTO product_type (name) VALUES
 ('Leki przeciwbólowe i przeciwzapalne');
 INSERT INTO product_type (name) VALUES
