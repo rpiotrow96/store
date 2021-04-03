@@ -20,7 +20,7 @@
                     <div>
                         <h2 th:text="${product.getName().toUpperCase()}"></h2>
                     </div>
-                    <img class="prod-img" th:src="@{'/img/products/' + ${product.getId()} + '.jpg'}">
+                    <img class="category-img" th:src="@{'/img/products/' + ${product.getId()} + '.jpg'}">
                     <div>
                         <a th:href="@{/products/product(productId=${product.getId()})}"
                            th:text="${#numbers.formatDecimal(product.getPrize(), 2, 2)} + ' zł'"></a>
