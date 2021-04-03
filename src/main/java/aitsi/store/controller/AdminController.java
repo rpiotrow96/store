@@ -49,10 +49,9 @@ public class AdminController {
         }
         Product savedProduct = productService.addProduct(product);
 
-        String uploadDirectory = null;
         if (productImage != null && !productImage.isEmpty()) {
             try {
-                uploadDirectory = ResourceUtils.getFile("classpath:static").getAbsolutePath();
+                String uploadDirectory = ResourceUtils.getFile("classpath:static").getAbsolutePath();
                 System.out.println(uploadDirectory);
 
                 productImage.transferTo(new File(uploadDirectory + "/img/products/"
