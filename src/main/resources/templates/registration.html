@@ -21,7 +21,7 @@
         <form autocomplete="off" th:action="@{/registration}" th:object="${user}" method="post">
             <input type="text" th:field="*{firstName}" placeholder="Imię"
                    class="form-control" />
-            <label th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}""></label>
+            <label th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></label>
             <br>
 
             <input type="text" th:field="*{lastName}" placeholder="Nazwisko"
@@ -43,6 +43,7 @@
                 <button type="submit" name="submit" value="">Zarejestruj się</button>
             </div>
         </form>
+    </div>
 </section>
 </body>
 </html>
