@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Produkt</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/general.css}"/>
+</head>
+<body>
+<section class="container">
+    <nav th:replace="fragments/header :: header"></nav>
+    <div class="jumbotron">
+        <h1 class="small-mg-bot">Rejestracja</h1>
+    </div>
+    <div class="container">
+        <form th:action="@{/login}" th:method="get">
+            <div>
+                <button type="submit" name="submit" value="">Wróć do panelu logowania</button>
+            </div>
+        </form>
+        <form autocomplete="off" th:action="@{/registration}" th:object="${user}" method="post">
+            <input type="text" th:field="*{firstName}" placeholder="Imię"
+                   class="form-control" />
+            <label th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}""></label>
+            <br>
+
+            <input type="text" th:field="*{lastName}" placeholder="Nazwisko"
+                   class="form-control" />
+            <label th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></label>
+            <br>
+
+            <input type="text" th:field="*{email}" placeholder="Email"
+                   class="form-control" />
+            <label th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></label>
+            <br>
+
+            <input type="password" th:field="*{password}" placeholder="Hasło"
+                   class="form-control" />
+            <label th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></label>
+            <br>
+
+            <div>
+                <button type="submit" name="submit" value="">Zarejestruj się</button>
+            </div>
+        </form>
+</section>
+</body>
+</html>
