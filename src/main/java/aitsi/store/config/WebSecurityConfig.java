@@ -59,6 +59,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .usernameParameter("email")
                 .passwordParameter("password")
                 .and().logout().logoutUrl("/logout").logoutSuccessUrl("/main");
+
+        //to make h2-console works
+        http.csrf().disable();
+        http.headers().frameOptions().disable();
     }
 
     @Override

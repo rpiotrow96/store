@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Leki</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/general.css}"/>
+</head>
+<body>
+<div class="container">
+    <nav th:replace="fragments/header :: header"></nav>
+    <div class="jumbotron">
+        <h1 class="small-mg-bot">Koszyk</h1>
+    </div>
+    <th:block th:if="${order.getOrderProducts().size() != 0}">
+        <div>
+            <form th:action="@{/order/addAddress}" th:method="post" >
+                <button class= type="submit" name="submit" value=""
+                        th:text="Zamów" ></button>
+            </form>
+        </div>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nazwa produktu</th>
+                <th scope="col">Cena</th>
+                <th scope="col">Ilość</th>
+                <th scope="col">Suma</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="orderProduct, iteration : ${order.getOrderProducts()}">
+                <th th:text="${iteration.count}" scope="row">1</th>
+                <td th:text="${orderProduct.getProduct().getName()}"></td>
+                <td th:text="${#numbers.formatDecimal(orderProduct.getProduct().getPrize(), 2, 2)} + ' zł'"></td>
+                <td th:text="${orderProduct.getAmount()}"></td>
+                <td th:text="${#numbers.formatDecimal(orderProduct.getAmount() * orderProduct.getProduct().getPrize(), 2, 2)} + ' zł'"></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="order-summary">
+            <h3 class="order-desc">Całkowity koszt zamówienia:</h3>
+            <h2 class="order-sum" th:text="${#numbers.formatDecimal(#aggregates.sum(order.orderProducts.![amount * product.prize]), 2, 2)} + ' zł'"></h2>
+        </div>
+    </th:block>
+    <div th:unless="${order.getOrderProducts().size() != 0}">
+        <h2>
+            Dodaj coś do koszyka!
+        </h2>
+    </div>
+</div>
+</body>
+</html>

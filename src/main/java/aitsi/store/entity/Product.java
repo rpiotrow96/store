@@ -5,6 +5,7 @@ import org.hibernate.validator.constraints.Length;
 import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
+import java.util.Objects;
 
 @Entity
 public class Product {
@@ -52,6 +53,10 @@ public class Product {
         this.productType = productType;
         this.unitsInStock = unitsInStock;
         this.availableAmount = unitsInStock;
+    }
+
+    public void subtractAmountOfProduct(int amountToSubtract) {
+        availableAmount -= amountToSubtract;
     }
 
     public Long getId() {
@@ -125,8 +130,9 @@ public class Product {
 
         Product product = (Product) o;
 
-        return id != null ? id.equals(product.id) : product.id == null;
+        return Objects.equals(id, product.id);
     }
+
 
     @Override
     public int hashCode() {
