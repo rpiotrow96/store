@@ -4,7 +4,6 @@ import aitsi.store.entity.Product;
 import aitsi.store.entity.ProductType;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface ProductService {
     List<ProductType> getAllCategories();
@@ -15,4 +14,6 @@ public interface ProductService {
     Product getProductById(long productId);
 
     Product addProduct(Product product);
+
+    void deleteProduct(Product product);
 }
