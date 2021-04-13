@@ -22,7 +22,8 @@
                     </div>
 
                         <a th:href="@{/products/product(productId=${product.getId()})}">
-                            <img class="category-img" th:src="@{'/img/products/' + ${product.getId()} + '.jpg'}">
+                            <img class="category-img" th:src="@{'/img/products/' + ${product.getId()} + '.jpg'}"
+                                 th:alt="${category.getName()}">
                             <div class="caption main-link"
                                  th:text="${#numbers.formatDecimal(product.getPrize(), 2, 2)} + ' zł'">
                             </div>
