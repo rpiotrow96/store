@@ -52,6 +52,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/h2_console/**").permitAll()
                 .antMatchers("/addProduct").hasAuthority("ADMIN")
                 .antMatchers("/deleteProduct").hasAuthority("ADMIN")
+                .antMatchers("/orders").hasAuthority("ADMIN")
                 .antMatchers("/cart").hasAuthority("USER")
                 .anyRequest().authenticated()
                 .and().csrf().disable().formLogin()
