@@ -24,7 +24,7 @@
             <div class="col">
                 <div>
                     <a th:href="@{/products(categoryId=${category.getId()})}" >
-                        <img th:src="@{'/img/categories/' +${category.getId()} + '.svg'}">
+                        <img th:src="@{'/img/categories/' +${category.getId()} + '.svg'}" th:alt="${category.getName()}">
                         <div class="caption main-link"  th:text="${category.getName()}">
                         </div>
                     </a>
