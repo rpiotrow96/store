@@ -15,12 +15,18 @@ public class MainController {
         this.productService = productService;
     }
 
+    @RequestMapping("/")
+    public String getMainPage() {
+        return "redirect:/welcome";
+    }
+
     @RequestMapping("/main")
     public String getProducts(Model model) {
         model.addAttribute("categories", productService.getAllCategories());
 
         return "mainPage";
     }
+
     @RequestMapping("/welcome")
     public String getWelcomePage(Model model) {
         return "welcome";
