@@ -17,7 +17,8 @@
     </div>
     <div class="row">
         <div class="col-sm-12 col-lg-6">
-            <img class="product-img" th:src="@{'/img/products/' + ${product.getId()} + '.jpg'}">
+            <img class="product-img" th:src="@{'/img/products/' + ${product.getId()} + '.jpg'}"
+                 th:alt="${product.getName()}">
         </div>
         <div class="col-sm-12 col-lg-6">
             <div th:inline="text">
