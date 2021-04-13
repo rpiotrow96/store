@@ -29,6 +29,11 @@
             </li>
             <th:block sec:authorize="hasAuthority('ADMIN')">
                 <li class="nav-item">
+                    <a class="nav-link" th:href="@{/info}">Informacje</a>
+                </li>
+            </th:block>
+            <th:block sec:authorize="hasAuthority('ADMIN')">
+                <li class="nav-item">
                     <a class="nav-link" th:href="@{/orders}">Zamówienia</a>
                 </li>
             </th:block>
