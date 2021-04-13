@@ -6,6 +6,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.LinkedHashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -113,13 +114,7 @@ public class Order {
 
         Order order = (Order) o;
 
-        if (id != null ? !id.equals(order.id) : order.id != null) return false;
-        if (orderProducts != null ? !orderProducts.equals(order.orderProducts) : order.orderProducts != null)
-            return false;
-        if (sum != null ? !sum.equals(order.sum) : order.sum != null) return false;
-        if (orderDate != null ? !orderDate.equals(order.orderDate) : order.orderDate != null) return false;
-        if (address != null ? !address.equals(order.address) : order.address != null) return false;
-        return user != null ? user.equals(order.user) : order.user == null;
+        return Objects.equals(id, order.id);
     }
 
     @Override

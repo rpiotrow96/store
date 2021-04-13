@@ -1,6 +1,7 @@
 package aitsi.store.entity;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 public class OrderProduct {
@@ -72,12 +73,9 @@ public class OrderProduct {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        OrderProduct that = (OrderProduct) o;
+        OrderProduct orderProduct = (OrderProduct) o;
 
-        if (id != that.id) return false;
-        if (amount != that.amount) return false;
-        if (product != null ? !product.equals(that.product) : that.product != null) return false;
-        return order != null ? order.equals(that.order) : that.order == null;
+        return Objects.equals(id, orderProduct.id);
     }
 
     @Override

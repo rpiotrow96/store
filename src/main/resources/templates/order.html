@@ -13,13 +13,6 @@
         <h1 class="small-mg-bot">Koszyk</h1>
     </div>
     <th:block th:if="${order.getOrderProducts().size() != 0}">
-        <div>
-            <form th:action="@{/order/addAddress}" th:method="post" >
-                <button class="btn btn-primary" type="submit" name="submit" value=""
-                        th:text="Zamów" ></button>
-            </form>
-        </div>
-
         <table class="table">
             <thead>
             <tr>
@@ -44,6 +37,13 @@
         <div class="order-summary">
             <h3 class="order-desc">Całkowity koszt zamówienia:</h3>
             <h2 class="order-sum" th:text="${#numbers.formatDecimal(#aggregates.sum(order.orderProducts.![amount * product.prize]), 2, 2)} + ' zł'"></h2>
+        </div>
+
+        <div>
+            <form th:action="@{/order/addAddress}" th:method="post" >
+                <button class="btn btn-primary" type="submit" name="submit" value=""
+                        th:text="Zamów" ></button>
+            </form>
         </div>
     </th:block>
     <div th:unless="${order.getOrderProducts().size() != 0}">
