@@ -18,7 +18,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.io.File;
 import java.util.List;
-import java.util.Set;
 
 @Controller
 public class AdminController {
@@ -29,6 +28,11 @@ public class AdminController {
     public AdminController(ProductService productService, OrderService orderService) {
         this.productService = productService;
         this.orderService = orderService;
+    }
+
+    @GetMapping("/info")
+    public String getInfo() {
+        return "info";
     }
 
     @GetMapping("/addProduct")

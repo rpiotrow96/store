@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Informacje o witrynie</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/general.css}"/>
+</head>
+<body>
+<div class="container">
+    <nav th:replace="fragments/header :: header"></nav>
+    <div class="jumbotron">
+        <h1 class="small-mg-bot">Rafał Piotrowski</h1>
+        <p>Nr indeksu: 277469</p>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div>
+                <h1>Opis serwisu</h1>
+
+                <p>
+                    Prezentowany serwis to sklep internetowy pozwalający na monitorowanie
+                    wszystkich zakupów przez administratora. Użytkownicy posiadający konta mogą zamawiać
+                    produkty, natomiast pozostali użytkownicy mogą swobodnie
+                    przeglądać ofertę sklepu internetowego.
+                </p>
+                <p>
+                    <strong>Administrator:</strong>
+                    Login: admin@admin.pl
+                    Hasło: 12345
+                </p>
+                <p>
+                    <strong>Uzytkownik 1:</strong>
+                    Login: user@user.pl
+                    Hasło: 12345
+                </p>
+                <p>
+                    <strong>Uzytkownik 2:</strong>
+                    Login: user2@user.pl
+                    Hasło: 12345
+                </p>
+            </div>
+
+            <div>
+                <h1>Technologie</h1>
+
+                <p>
+                    Strona internetowa została wykonana z wykorzystaniem następujących technologii:
+                </p>
+                <ul>
+                    <li>JAVA 16</li>
+                    <li>SpringBoot 2.4.4</li>
+                    <li>Baza danych H2</li>
+                    <li>HTML 5</li>
+                    <li>CSS 3</li>
+                    <li>Bootstrap 4.3</li>
+                </ul>
+            </div>
+
+            <div>
+                <h1>Wymagania stawiane aplikacji</h1>
+
+                <h2>
+                    Serwis może być zrealizowany na bazie HTML 4.01 lub XHTML (dopuszczalne jest też użycie XML+XSLT).
+                    Strony muszą być utworzone poprawnie i mieć poprawne deklaracje typu
+                </h2>
+                <p>
+                    Serwis został wykonany na bazie HTML 5 (deklaracja &lt!DOCTYPE HTML&gt) oraz został sprawdzony
+                    <a href="https://validator.w3.org/">validatorem html</a>.
+                </p>
+
+                <h2>
+                    Wymagane jest nietrywialne formatowanie przy użyciu CSS. reguł CSS również będzie sprawdzana
+                    walidatorem.
+                </h2>
+                <p>
+                    Nietrywialne formatowanie osiągnięto dzięki zastosowaniu frameworku
+                    <a href="https://getbootstrap.com/docs/4.3/">Bootstrap 4.3</a>. Poprawność reguł
+                    CSS
+                    została sprawdzona <a href="https://jigsaw.w3.org/css-validator/">validatorem
+                    CSS</a>.
+                </p>
+
+                <h2>
+                    Kompatybilność i „łagodna degradacja” - serwis powinien funkcjonować poprawnie i wyglądać
+                    dobrze we wszystkich popularnych przeglądarkach (najnowsze wersje), a korzystanie z serwisu
+                    powinno być też możliwe – choć zapewne nie bez zakłóceń w rodzaju nieudanego formatowania.
+                </h2>
+                <p>
+                    Serwis został przetestowany na popularnych przeglądarkach internetowych takich jak:
+                </p>
+                <ul>
+                    <li>Google Chrome</li>
+                    <li>Mozilla Firefox</li>
+                    <li>Internet Explorer (MS Edge)</li>
+                </ul>
+
+                <h2>
+                    Dostępność dla niepełnosprawnych – w szczególności powinna być możliwa nawigacja przy użyciu
+                    oprogramowania czytającego.
+                </h2>
+                <p>
+                    Wszystkie obrazki posiadają teksty alternatywne a strony tytuły.
+                </p>
+
+                <h2>
+                    Poza (X)HTML i CSS serwis powinien wykorzystywać co najmniej jedną wybraną technologię spośród
+                    przedstawionych na wykładzie (np. skrypty po stronie serwera i/lub klienta, ciasteczka, bazy danych,
+                    web serwisy, SSL...)
+                </h2>
+                <p>
+                    Wszystkie informacje o zakupach i ofertach sklepu przechowywane są w relacyjnej bazie danych H2.
+                </p>
+
+                <h2>
+                    Serwis powinien zawierać dobrze przemyślany, wygodny i spójny system nawigacji. Co więcej,
+                    serwis powinien być na tyle duży, aby ten system miał sens
+                </h2>
+
+                <p>
+                    Aplikacja posiada wygodny system nawigacji widoczny na początku każdej strony.
+                </p>
+                <div>
+                    <img th:src="@{'/img/info/menu.png'}"
+                         alt="Panel nawigacyjny" style="width: 80%; height: 80%"/>
+                </div>
+                <br>
+                <br>
+
+                <p>
+                    Serwis posiada układ w formie kafelków. Wszystkie produkty są pogrupowane w kategorie.
+                </p>
+                <div>
+                    <img th:src="@{'/img/info/kategorie.png'}"
+                         alt="Kategorie" style="width: 60%; height: 60%"/>
+                </div>
+                <br>
+                <br>
+
+                <p>
+                    Administrator ma możliwość dodawania produktów.
+                </p>
+                <div>
+                    <img th:src="@{'/img/info/admin.png'}"
+                         alt="Dodawanie produktów" style="width: 50%; height: 50%"/>
+                </div>
+                <br>
+                <br>
+
+                <p>
+                    Użytkownicy mają możliwość dokonywania zakupów w sklepie.
+                </p>
+                <div>
+                    <img th:src="@{'/img/info/zamowienie.png'}"
+                         alt="Zamówienie 1" style="width: 50%; height: 50%"/>
+                    <img th:src="@{'/img/info/zamowienie2.png'}"
+                         alt="Zamówienie 1" style="width: 50%; height: 50%"/>
+                    <img th:src="@{'/img/info/zamowienie3.png'}"
+                         alt="Zamówienie 1" style="width: 50%; height: 50%"/>
+                </div>
+                <br>
+                <br>
+
+                <p>
+                    Administrator posiada podgląd historii wszystkich zakupów wykonanych w sklepie internetowym przez
+                    użytkowników.
+                </p>
+                <div>
+                    <img th:src="@{'/img/info/admin_order.png'}"
+                         alt="Podgląd zamówień" style="width: 50%; height: 50%"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
