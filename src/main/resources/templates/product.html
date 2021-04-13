@@ -11,12 +11,19 @@
     <nav th:replace="fragments/header :: header"></nav>
     <div class="jumbotron">
         <h1 class="small-mg-bot" th:text="${product.getName()}"></h1>
+        <div align="center" th:if="${errorAmount}">
+            <p class="prod-err" th:text="${errorAmount}"></p>
+        </div>
     </div>
     <div class="row">
         <div class="col-sm-12 col-lg-6">
             <img class="product-img" th:src="@{'/img/products/' + ${product.getId()} + '.jpg'}">
         </div>
         <div class="col-sm-12 col-lg-6">
+            <div th:inline="text">
+                Dostępna ilość produktów:
+                <span id="unit-available" th:text="${product.getAvailableAmount()}"></span>
+            </div>
             <div th:text="${#numbers
 							.formatDecimal(product.getPrize(), 2, 2)} + ' zł'"></div>
             <div>

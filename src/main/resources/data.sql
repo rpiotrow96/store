@@ -31,7 +31,7 @@ INSERT INTO product_type (name) VALUES
 
 INSERT INTO product (name, producer, description, prize, units_in_stock, available_amount, product_type_id) VALUES
 ( 'Ibuprom', 'USP zdrowie', 'Ibuprom lek polecany jest do stosowania w dolegliwościach bólowych różnego pochodzenia o nasileniu słabym do umiarkowanego. Lek obniża również gorączkę w przebiegu grypy, przeziębienia lub innych chorób zakaźnych.',
-  20.00, 50, 50, 1);
+  20.00, 50, 1, 1);
 INSERT INTO product (name, producer, description, prize, units_in_stock, available_amount, product_type_id) VALUES
 ( 'Aspirin', 'BAYER', 'Aspirin C to lek polecany w objawowym leczeniu dolegliwości bólowych i gorączki w przebiegu przeziębienia i grypy. Lek należy stosować od 12. roku życia.',
   25.00, 50, 50, 1);
