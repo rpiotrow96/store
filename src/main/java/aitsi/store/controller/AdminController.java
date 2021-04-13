@@ -1,7 +1,10 @@
 package aitsi.store.controller;
 
+import aitsi.store.entity.Order;
 import aitsi.store.entity.Product;
+import aitsi.store.service.OrderService;
 import aitsi.store.service.ProductService;
+import org.aspectj.weaver.ast.Or;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,16 +14,21 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.io.File;
+import java.util.List;
+import java.util.Set;
 
 @Controller
 public class AdminController {
     private ProductService productService;
+    private OrderService orderService;
 
     @Autowired
-    public AdminController(ProductService productService) {
+    public AdminController(ProductService productService, OrderService orderService) {
         this.productService = productService;
+        this.orderService = orderService;
     }
 
     @GetMapping("/addProduct")
@@ -71,6 +79,15 @@ public class AdminController {
         redirectAttributes.addFlashAttribute("successMessage", "Produkt o id " + productId + " został usunięty.");
 
         return "redirect:/main";
+    }
+
+    @GetMapping("/orders")
+    public String getOrders(Model model, HttpServletRequest request) {
+
+        List<Order> orders = orderService.getAllOrders();
+        model.addAttribute("orders", orders);
+
+        return "orders";
     }
 }
 
