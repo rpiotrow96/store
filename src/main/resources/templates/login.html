@@ -10,31 +10,32 @@
 <div class="container">
     <nav th:replace="fragments/header :: header"></nav>
     <div class="jumbotron">
-        <h1 class="small-mg-bot" >Zaloguj się</h1>
+        <h1 class="small-mg-bot">Zaloguj się</h1>
     </div>
 
     <form class="login-form" th:action="@{/login}" th:method="post">
         <input type="text" id="email" name="email" th:placeholder="Email"
-               class="form-control login-input" />
+               class="form-control login-input"/>
         <br>
 
         <input type="password" id="password" name="password" th:placeholder="Hasło"
-               class="form-control login-input" />
-        <br>
+               class="form-control login-input"/>
 
-        <div align="center" th:if="${param.error}">
-            <p class="login-error">Email lub hasło są niepoprawne, spóbuj ponownie.</p>
+        <div th:if="${param.error}" class="text-danger">
+            <small class="text-danger">Email lub hasło są niepoprawne, spóbuj ponownie.</small>
         </div>
-
-        <div class="button-center">
-            <button class="login-button" type="submit" name="submit" value="" th:text="Zaloguj"></button>
-        </div>
+        <button class="btn btn-primary mt-3" type="submit" name="submit" value="" th:text="Zaloguj"></button>
         <br>
     </form>
-
+    <br>
     <form th:action="@{/registration}" th:method="get">
-        <div>
-            <button type="submit" name="submit" value="" th:text="Zarejestruj"></button>
+        <div style="text-align: center">
+            <p>
+                Nie masz konta? utwórz je!
+            </p>
+            <div>
+                <button class="btn btn-primary" type="submit" name="submit" value="" th:text="Zarejestruj"></button>
+            </div>
         </div>
     </form>
 </div>

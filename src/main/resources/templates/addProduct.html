@@ -7,87 +7,73 @@
     <link rel="stylesheet" th:href="@{/css/general.css}"/>
 </head>
 <body>
-<section class="container">
+<div class="container">
     <nav th:replace="fragments/header :: header"></nav>
     <div class="jumbotron">
         <h1 class="small-mg-bot">Dodaj nowy produkt</h1>
     </div>
-    <form id="newProduct" class="form-horizontal" th:action="@{/addProduct}" th:method="post" th:object="${product}" enctype="multipart/form-data">
-        <fieldset>
-            <legend>Dodaj nowy produkt</legend>
+    <form id="newProduct" th:action="@{/addProduct}" th:method="post" th:object="${product}"
+          enctype="multipart/form-data">
 
-            <div class="form-group col-lg-10">
-                <label class="control-label col-lg-2">
-                    Nazwa
-                    <input type="text" id="name" class="input-large" th:placeholder="Nazwa" th:field="*{name}"/>
-                </label>
-                <small th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
-                       class="text-danger"></small>
-            </div>
+        <label>
+            Nazwa
+            <input type="text" id="name" th:placeholder="Nazwa" th:field="*{name}" class="form-control"/>
+        </label>
+        <small th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger"></small>
+        <br>
 
-            <div class="form-group col-lg-10">
-                <label class="control-label col-lg-2">
-                    Producent
-                    <input type="text" class="input-large" th:placeholder="Producent" th:field="*{producer}"/>
-                </label>
-                <small th:if="${#fields.hasErrors('producer')}" th:errors="*{producer}"
-                       class="text-danger"></small>
-            </div>
+        <label>
+            Producent
+            <input type="text" th:placeholder="Producent" th:field="*{producer}" class="form-control"/>
+        </label>
+        <small th:if="${#fields.hasErrors('producer')}" th:errors="*{producer}" class="text-danger"></small>
+        <br>
 
-            <div class="form-group col-lg-10">
-                <label class="control-label col-lg-2">
-                    Kategoria
-                    <select th:field="*{productType}">
-                        <option th:each="category : ${categories}" th:value="${category.getId()}"
-                                th:text="${category.getName()}" th:selected="${category.getId()} == 1"></option>
-                    </select>
-                </label>
-            </div>
+        <label>
+            Kategoria
+            <select class="form-control" th:field="*{productType}">
+                <option th:each="category : ${categories}" th:value="${category.getId()}"
+                        th:text="${category.getName()}" th:selected="${category.getId()} == 1"></option>
+            </select>
+        </label>
+        <br>
 
-            <div class="form-group col-lg-10">
-                <label class="control-label col-lg-2">
-                    Opis
-                    <textarea th:placeholder="Opis" th:field="*{description}"></textarea>
-                </label>
-                <small th:if="${#fields.hasErrors('description')}" th:errors="*{description}"
-                       class="text-danger"></small>
-            </div>
+        <label>
+            Opis
+            <textarea class="form-control" th:placeholder="Opis" th:field="*{description}"></textarea>
+        </label>
+        <small th:if="${#fields.hasErrors('description')}" th:errors="*{description}" class="text-danger"></small>
+        <br>
 
-            <div class="form-group col-lg-10">
-                <label class="control-label col-lg-2">
-                    Cena
-                    <input type="number" name="prize" min="0" value="0" step=".01"
-                           th:placeholder="Cena" th:field="*{prize}" th:default="0.01"/>
-                </label>
-                <small th:if="${#fields.hasErrors('prize')}" th:errors="*{prize}"
-                       class="text-danger"></small>
-            </div>
 
-            <div class="form-group col-lg-10">
-                <label class="control-label col-lg-2">
-                    Liczba sztuk:
-                    <input type="number" name="prize" min="0" value="0"
-                            th:field="*{unitsInStock}" />
-                </label>
-                <small th:if="${#fields.hasErrors('unitsInStock')}" th:errors="*{unitsInStock}"
-                       class="text-danger"></small>
-            </div>
+        <label>
+            Cena
+            <input type="number" name="prize" min="0" value="0" step=".01"
+                   th:placeholder="Cena" th:field="*{prize}" th:default="0.01" class="form-control"/>
+        </label>
+        <small th:if="${#fields.hasErrors('prize')}" th:errors="*{prize}"
+               class="text-danger"></small>
+        <br>
 
-            <div class="form-group col-lg-10">
-                <label class="control-label col-lg-2">
-                    Obraz leku
-                    <input type="file" name="file" class="input-large" value=""/>
-                </label>
 
-            </div>
+        <label>
+            Liczba sztuk:
+            <input type="number" name="prize" min="0" value="0"
+                   th:field="*{unitsInStock}" class="form-control"/>
+        </label>
+        <small th:if="${#fields.hasErrors('unitsInStock')}" th:errors="*{unitsInStock}"
+               class="text-danger"></small>
+        <br>
 
-            <div class="form-group col-lg-10">
-                <div class="button-center">
-                    <button class="login-button" type="submit" name="submit" value="" th:text="Zatwierdź"></button>
-                </div>
-            </div>
-        </fieldset>
+        <label>
+            Obraz produktu
+            <input type="file" name="file" class="form-control-file"/>
+        </label>
+
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit" name="submit" value="" th:text="Zatwierdź"></button>
+        </div>
     </form>
-</section>
+</div>
 </body>
 </html>

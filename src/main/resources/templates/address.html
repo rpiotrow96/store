@@ -14,39 +14,37 @@
     </div>
 
     <form th:action="@{/order/postToOrders}" th:method="post" th:object="${address}">
-        <input type="text" id="street" name="street" th:placeholder="Ulica" th:field="*{street}"
-               class="form-control" />
-        <label th:if="${#fields.hasErrors('street')}" th:errors="*{street}"
-               class="login-error"></label>
+        <input type="text" id="street" name="street" th:placeholder="Ulica" th:field="*{street}" class="form-control"/>
+        <small th:if="${#fields.hasErrors('street')}" th:errors="*{street}" class="text-danger"></small>
         <br>
 
-        <input type="text" id="numberOfHouse" name="numberOfHouse" th:placeholder="'Numer domu'" th:field="*{numberOfHouse}"
-               class="form-control" />
-        <label th:if="${#fields.hasErrors('numberOfHouse')}" th:errors="*{numberOfHouse}"
-               class="login-error"></label>
+        <input type="text" id="numberOfHouse" name="numberOfHouse" th:placeholder="'Numer domu'"
+               th:field="*{numberOfHouse}"
+               class="form-control"/>
+        <small th:if="${#fields.hasErrors('numberOfHouse')}" th:errors="*{numberOfHouse}"
+               class="text-danger"></small>
         <br>
 
-        <input type="text" id="numberOfFlat" name="numberOfFlat" th:placeholder="'Numer mieszkania'" th:field="*{numberOfFlat}"
-               class="form-control" />
-        <label th:if="${#fields.hasErrors('numberOfFlat')}" th:errors="*{numberOfFlat}"
-               class="login-error"></label>
+        <input type="text" id="numberOfFlat" name="numberOfFlat" th:placeholder="'Numer mieszkania'"
+               th:field="*{numberOfFlat}"
+               class="form-control"/>
+        <small th:if="${#fields.hasErrors('numberOfFlat')}" th:errors="*{numberOfFlat}"
+               class="text-danger"></small>
         <br>
 
         <input type="text" id="city" name="city" th:placeholder="Miasto" th:field="*{city}"
-               class="form-control" />
-        <label th:if="${#fields.hasErrors('city')}" th:errors="*{city}"
-               class="login-error"></label>
+               class="form-control"/>
+        <small th:if="${#fields.hasErrors('city')}" th:errors="*{city}"
+               class="text-danger"></small>
         <br>
 
         <input type="text" id="postCode" name="postCode" th:placeholder="'Kod pocztowy'" th:field="*{postCode}"
-               class="form-control" />
-        <label th:if="${#fields.hasErrors('postCode')}" th:errors="*{postCode}"
-               class="login-error"></label>
+               class="form-control"/>
+        <small th:if="${#fields.hasErrors('postCode')}" th:errors="*{postCode}"
+               class="text-danger"></small>
         <br>
 
-        <div class="button-center">
-            <button type="submit" name="submit" value="" th:text="Zatwierdź"></button>
-        </div>
+        <button class="btn btn-success" type="submit" name="submit" value="" th:text="Zatwierdź"></button>
         <br>
     </form>
 </div>

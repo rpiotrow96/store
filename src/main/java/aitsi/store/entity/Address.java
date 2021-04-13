@@ -8,23 +8,23 @@ import javax.validation.constraints.Pattern;
 
 @Embeddable
 public class Address {
-    @Length(min = 2, max = 50, message = "* Proszę podaj nazwę ulicy zawierającą od 2 do 50 znaków")
-    @NotEmpty(message = "* Proszę podaj nazwę ulicy")
+    @Length(min = 2, max = 50, message = "Proszę podaj nazwę ulicy zawierającą od 2 do 50 znaków")
+    @NotEmpty(message = "Proszę podaj nazwę ulicy")
     private String street;
 
-    @Pattern(regexp = "[1-9][0-9a-zA-Z]*", message = "* Proszę podaj poprawny numer domu")
-    @NotEmpty(message = "* Proszę podaj numer domu")
+    @Pattern(regexp = "[1-9][0-9a-zA-Z]*", message = "Proszę podaj poprawny numer domu")
+    @NotEmpty(message = "Proszę podaj numer domu")
     private String numberOfHouse;
 
-    @Pattern(regexp = "[0-9][0-9a-zA-Z]*", message = "* Proszę podaj poprawny numer mieszkania")
+    @Pattern(regexp = "[0-9][0-9a-zA-Z]*", message = "Proszę podaj poprawny numer mieszkania")
     private String numberOfFlat;
 
-    @Length(min = 2, max = 50, message = "* Proszę podaj nazwę miasta zawierającą od 2 do 50 znaków")
-    @NotEmpty(message = "* Proszę podaj nazwę miasta")
+    @Length(min = 2, max = 50, message = "Proszę podaj nazwę miasta zawierającą od 2 do 50 znaków")
+    @NotEmpty(message = "Proszę podaj nazwę miasta")
     private String city;
 
-    @Pattern(regexp = "[0-9]{2}-[0-9]{3}", message = "* Proszę podaj poprawny kod pocztowy")
-    @NotEmpty(message = "* Proszę podaj kod pocztowy")
+    @Pattern(regexp = "[0-9]{2}-[0-9]{3}", message = "Proszę podaj poprawny kod pocztowy")
+    @NotEmpty(message = "Proszę podaj kod pocztowy")
     private String postCode;
 
     public Address() {

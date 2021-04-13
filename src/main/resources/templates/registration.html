@@ -15,33 +15,32 @@
     <div class="container">
         <form th:action="@{/login}" th:method="get">
             <div>
-                <button type="submit" name="submit" value="">Wróć do panelu logowania</button>
+                <button class="btn btn-secondary mb-4" type="submit" name="submit" value="">Wróć do panelu logowania
+                </button>
             </div>
         </form>
         <form autocomplete="off" th:action="@{/registration}" th:object="${user}" method="post">
             <input type="text" th:field="*{firstName}" placeholder="Imię"
-                   class="form-control" />
-            <label th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></label>
+                   class="form-control"/>
+            <small class="text-danger" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></small>
             <br>
 
             <input type="text" th:field="*{lastName}" placeholder="Nazwisko"
-                   class="form-control" />
-            <label th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></label>
+                   class="form-control"/>
+            <small class="text-danger" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></small>
             <br>
 
             <input type="text" th:field="*{email}" placeholder="Email"
-                   class="form-control" />
-            <label th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></label>
+                   class="form-control"/>
+            <small class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></small>
             <br>
 
             <input type="password" th:field="*{password}" placeholder="Hasło"
-                   class="form-control" />
-            <label th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></label>
+                   class="form-control"/>
+            <small class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></small>
             <br>
 
-            <div>
-                <button type="submit" name="submit" value="">Zarejestruj się</button>
-            </div>
+            <button class="btn btn-primary" type="submit" name="submit" value="">Zarejestruj się</button>
         </form>
     </div>
 </section>

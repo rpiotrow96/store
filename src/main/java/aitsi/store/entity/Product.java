@@ -13,31 +13,31 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Length(min = 2, max = 50, message = "* Proszę podaj nazwę leku zawierającą od 2 do 50 znaków")
-    @NotEmpty(message = "* Proszę podaj nazwę leku")
+    @Length(min = 2, max = 50, message = "Proszę podaj nazwę leku zawierającą od 2 do 50 znaków")
+    @NotEmpty(message = "Proszę podaj nazwę leku")
     private String name;
 
-    @Length(min = 2, max = 50, message = "* Proszę podaj nazwę producenta zawierającą od 2 do 50 znaków")
-    @NotEmpty(message = "* Proszę podaj nazwę producenta")
+    @Length(min = 2, max = 50, message = "Proszę podaj nazwę producenta zawierającą od 2 do 50 znaków")
+    @NotEmpty(message = "Proszę podaj nazwę producenta")
     private String producer;
 
     @Lob
     @Column(columnDefinition = "LONGTEXT")
-    @Length(max = 1000, message = "* Opis nie może być dłuższy niż 1000 znaków")
+    @Length(max = 1000, message = "Opis nie może być dłuższy niż 1000 znaków")
     private String description;
 
     @Digits(integer = 10, fraction = 2,
-            message = "* Proszę wprowadź cenę do 2 miejsc po przecinku i o 10 przed przecinkiem")
+            message = "Proszę wprowadź cenę do 2 miejsc po przecinku i o 10 przed przecinkiem")
     @DecimalMin(value = "0.01", message = "* Proszę wprowadź cenę produktu")
-    @NotNull(message = "* Proszę podaj cenę")
+    @NotNull(message = "Proszę podaj cenę")
     private Double prize;
 
     @Valid
     @ManyToOne
     private ProductType productType;
 
-    @NotNull(message = "* Proszę podaj dostępną ilość produktu")
-    @Min(value = 0, message = "* Proszę wprowadź liczbę nieujemną dostępnej ilości produktu")
+    @NotNull(message = "Proszę podaj dostępną ilość produktu")
+    @Min(value = 0, message = "Proszę wprowadź liczbę nieujemną dostępnej ilości produktu")
     private long unitsInStock;
 
     private long availableAmount;

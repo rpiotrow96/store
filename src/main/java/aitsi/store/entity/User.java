@@ -13,18 +13,18 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Email(message = "* Proszę podaj poprawny email")
-    @NotEmpty(message = "* Proszę podaj email")
+    @Email(message = "Proszę podaj poprawny email")
+    @NotEmpty(message = "Proszę podaj email")
     private String email;
 
-    @Length(min = 5, message = "* Proszę podaj hasło o długości co najmniej 5 znaków")
-    @NotEmpty(message = "* Proszę podaj hasło")
+    @Length(min = 5, message = "Proszę podaj hasło o długości co najmniej 5 znaków")
+    @NotEmpty(message = "Proszę podaj hasło")
     private String password;
 
-    @NotEmpty(message = "* Proszę podaj swoje imię")
+    @NotEmpty(message = "Proszę podaj swoje imię")
     private String firstName;
 
-    @NotEmpty(message = "* Proszę podaj swoje nazwisko")
+    @NotEmpty(message = "Proszę podaj swoje nazwisko")
     private String lastName;
 
     private boolean active;

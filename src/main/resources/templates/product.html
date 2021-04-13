@@ -21,7 +21,7 @@
         </div>
         <div class="col-sm-12 col-lg-6">
             <div th:inline="text">
-                Dostępna ilość produktów:
+                Dostępna liczba sztuk:
                 <span id="unit-available" th:text="${product.getAvailableAmount()}"></span>
             </div>
             <div th:text="${#numbers
@@ -33,13 +33,13 @@
             <th:block sec:authorize="hasAuthority('USER')">
                 <form th:action="${'/order/addToCart/' + product.getId()}"
                       th:method="post" class="unit-button">
-                    <button type="submit" name="submit" value=""
+                    <button class="btn btn-secondary" type="submit" name="submit" value=""
                             th:text="'Dodaj do koszyka'"></button>
                 </form>
             </th:block>
             <th:block sec:authorize="hasAuthority('ADMIN')">
                 <form th:action="@{/deleteProduct(productId=${product.getId()})}" th:method="delete">
-                    <button type="submit" name="submit" value="" th:text="Usuń"
+                    <button class="btn btn-danger" type="submit" name="submit" value="" th:text="Usuń"
                             onClick="return confirm('Jesteś pewny?')"></button>
                 </form>
             </th:block>
