@@ -38,7 +38,7 @@ public class AdminController {
 
     @PostMapping("/addProduct")
     public String postProduct(@Valid Product product, BindingResult bindingResult,
-                              @RequestParam("file") MultipartFile productImage, Model model) {
+                              @RequestParam("file") MultipartFile productImage, Model model, RedirectAttributes redirectAttributes) {
 
         model.addAttribute("categories", productService.getAllCategories());
 
@@ -55,10 +55,11 @@ public class AdminController {
                 productImage.transferTo(new File(uploadDirectory + "/img/products/"
                         + savedProduct.getId() + ".jpg"));
             } catch (Exception e) {
-                throw new RuntimeException("Próba zapisu obrazka zakończona niepowodzeniem", e);
+                redirectAttributes.addFlashAttribute("successMessage", "Nie udało dodać się zdjęcia do produktu");
+                return "redirect:/main";
             }
         }
-
+        redirectAttributes.addFlashAttribute("successMessage", "Pomyślnie dodano produkt");
         return "redirect:/main";
     }
 

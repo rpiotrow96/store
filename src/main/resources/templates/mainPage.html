@@ -14,6 +14,10 @@
     <div class="jumbotron">
         <h1 class="small-mg-bot">Kategorie</h1>
         <p>Wybierz kategorię</p>
+        <div align="center" th:if="${successMessage}">
+            <p th:text="${successMessage}"></p>
+        </div>
+        <br>
     </div>
     <div class="row">
         <th:block th:each="category : ${categories}">

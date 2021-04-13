@@ -53,7 +53,7 @@ public class OrderController {
         int existingAmountOfProductInCart = order.getAmountOfProductInCart(product);
 
         if (existingAmountOfProductInCart + amount > product.getAvailableAmount()) {
-            redirectAttributes.addFlashAttribute("errorAmount", "* Nie można dodać większej ilości " +
+            redirectAttributes.addFlashAttribute("errorAmount", "Nie można dodać większej ilości " +
                     "niż jest na magazynie (zamówiono " + existingAmountOfProductInCart + "/" +
                     product.getAvailableAmount() + ")");
 
@@ -72,7 +72,7 @@ public class OrderController {
 
         if (!orderService.amountIsAvailableInShop(order)) {
             redirectAttributes.addFlashAttribute("error",
-                    "* Większa ilość danego produktu w koszyku niż jest dostępna w sklepie");
+                    "Większa ilość danego produktu w koszyku niż jest dostępna w sklepie");
             return "redirect:/order/cart";
         }
 
@@ -85,7 +85,7 @@ public class OrderController {
 
     @PostMapping("/postToOrders")
     public String addOrder(@ModelAttribute("address") @Valid Address address, BindingResult bindingResult,
-                           HttpSession session, HttpServletRequest request) {
+            RedirectAttributes redirectAttributes, HttpSession session, HttpServletRequest request) {
         if(bindingResult.hasErrors()) {
             return "address";
         }
@@ -99,6 +99,8 @@ public class OrderController {
 
         session.invalidate();
         order = new Order();
+
+        redirectAttributes.addFlashAttribute("successMessage", "Zamówienie zostało zrealizowane. Czas wysyłki: 24h");
 
         return "redirect:/main";
     }
